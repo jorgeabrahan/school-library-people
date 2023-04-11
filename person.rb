@@ -9,6 +9,10 @@ class Person < Nameable
     @parent_permission = parent_permission
   end
 
+  def correct_name
+    @name
+  end
+
   def can_use_services?
     return true if is_of_age? || @parent_permission
     false
