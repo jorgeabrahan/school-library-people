@@ -5,4 +5,7 @@ class Decorator < Nameable
     @nameable = Nameable.new
   end 
 
+  def correct_name
+    @nameable.correct_name()
+  end
 end
