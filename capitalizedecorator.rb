@@ -1,0 +1,3 @@
+class CapitalizeDecorator < Decorator
+  
+end
