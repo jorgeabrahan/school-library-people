@@ -4,8 +4,9 @@ class Decorator < Nameable
   attr_accessor :nameable
 
   def initialize(nameable)
+    super()
     @nameable = nameable
-  end 
+  end
 
   def correct_name
     @nameable.correct_name
