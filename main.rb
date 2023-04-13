@@ -144,24 +144,40 @@ def main
       puts "Book created successfully!"
     when 3
       # CREATE A RENTAL
-      date, book, person = get_rental_data()
-      return if (date == nil || book == nil || person == nil)
+      date, book, person = get_rental_data(app)
+      if (date == nil || book == nil || person == nil)
+        puts "\nERROR:\nWhile creating the rental one of the supplied values was not valid!\n\n"
+        next
+      end
       app.create_rental(date, book, person)
       puts "Rental created successfully!"
     when 4
       # LIST ALL PERSONS
+      if (app.persons == nil)
+        puts "\nERROR:\nThere are no persons created yet!\n\n"
+        next
+      end
       app.list_persons()
     when 5
       # LIST ALL BOOKS
+      if (app.books == nil)
+        puts "\nERROR:\nThere are no books created yet!\n\n"
+        next
+      end
       app.list_books()
     when 6
       # LIST ALL RENTALS FOR A GIVEN PERSON ID
+      if (app.persons == nil)
+        puts "\nERROR:\nThere are no persons created yet!\n\n"
+        next
+      end
       print "ID: "
-      id = gets.chomp
+      id = gets.chomp.to_i
       app.list_rentals(id)
     else
       # EXIT APP
       puts "\nThanks for using the app!\n"
+      break
     end
   end
 end
