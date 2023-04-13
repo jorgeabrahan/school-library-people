@@ -15,4 +15,8 @@ class Student < Person
   def play_hooky
     "¯\\(ツ)/¯"
   end
+
+  def method_missing(method)
+    nil
+  end
 end
