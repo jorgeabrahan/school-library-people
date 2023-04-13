@@ -84,6 +84,16 @@ def get_person_data()
   return [age, name, permission, specialization]
 end
 
+def get_book_data()
+  print "Title: "
+  title = gets.chomp
+
+  print "Author: "
+  author = gets.chomp
+
+  return [title, author]
+end
+
 def main
   option = 0
   app = App.new
@@ -96,8 +106,12 @@ def main
       # CREATE A PERSON
       age, name, permission, specialization = get_person_data()
       app.create_person(age, name, permission, specialization)
+      puts "Person created successfully!"
     when 2
       # CREATE A BOOK
+      title, author = get_book_data()
+      app.create_book(title, author)
+      puts "Book created successfully!"
     when 3
       # CREATE A RENTAL
     when 4
