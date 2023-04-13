@@ -25,7 +25,10 @@ class App
 
   def list_rentals(id)
     person = persons.find { |p| p.id == id }
-    return if (person == nil || person&.rentals == nil)
+    if (person == nil || person&.rentals == nil)
+      puts "id is not valid!"
+      return
+    end
     puts "#{person.name} rentals (#{person&.rentals&.length}):"
     person&.rentals.each { |r|
       print "Date: #{r.date}, Book title: \"#{r.book.title}\", Book author: #{r.book.author}"
