@@ -51,12 +51,12 @@ def get_boolean_answer(question)
   answer = ""
   valid_answers = ["y", "Y", "n", "N", "Yes", "No", "YES", "NO"]
   # while answer is not valid
-  while not(valid_answer.include?(answer))
+  while not(valid_answers.include?(answer))
     # keep asking and getting answer
     print question
     answer = gets.chomp
     # if it's not valid (answer is not a valid answer from array, display a message)
-    puts "\nAnswer is not valid!\n" if not(valid_answer.include?(answer))
+    puts "\nAnswer is not valid!\n" if not(valid_answers.include?(answer))
   end
   # return answer as boolean (if it starts with "y" is true otherwise it is false)
   return (answer.downcase[0] == "y")
