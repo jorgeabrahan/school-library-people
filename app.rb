@@ -18,6 +18,14 @@ class App
     books.each { |b| print "Title: \"#{b.title}\", Author: #{b.author}" }
   end
 
+  def list_rentals(id)
+    person = persons.find { |p| p.id == id }
+    puts "#{person.name} rentals:"
+    person&.rentals.each { |r|
+      print "Date: #{r.date}, Book title: \"#{r.book.title}\", Book author: #{r.book.author}"
+    }
+  end
+
   def create_person(age, name = "Unknown", parent_permission = true, specialization = nil)
     persons.push(
       specialization != nil ?
