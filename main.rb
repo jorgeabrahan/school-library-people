@@ -99,25 +99,25 @@ def get_book_data()
   return [title, author]
 end
 
-def get_rental_data()
+def get_rental_data(app)
   # validate before creating a rental
   if (app.books.length == 0)
-    print "You don't have any books to rent"
+    puts "\nERROR:\nYou don't have any books to rent\n\n"
     return [nil, nil, nil]
   end
   if (app.persons.length == 0)
-    print "There are no persons to rent books"
+    puts "\nERROR:\nThere are no persons to rent books\n\n"
     return [nil, nil, nil]
   end
 
   # get selected book
   app.list_books(true)
-  book_index = get_valid_answer("Select a book by number: ", app.books.length, 0)
+  book_index = get_valid_answer("Select a book by number: ", app.books.length - 1, 0)
   book = app.books[book_index]
 
   # get selected person
   app.list_persons(true)
-  person_index = get_valid_answer("Select a person by number: ", app.persons.length, 0)
+  person_index = get_valid_answer("Select a person by number: ", app.persons.length - 1, 0)
   person = app.persons[person_index]
 
   date = get_not_empty_answer("Date: ")
