@@ -27,15 +27,25 @@ def is_option_valid?(option, max, min = 1)
 end
 
 # calls a function that gets an option while the option is not valid (not in range)
-def get_valid_option(get_option_func, max)
+def get_valid_option(get_option_func, max, min = 1)
   option = 0
-  while is_option_valid?(option, max)
+  while not(is_option_valid?(option, max, min))
     # keep asking for option while is not valid
     option = get_option_func()
     # if it's not valid (it's not in valid range), display a message
     puts "\nOption is not valid!\n" if not(is_option_valid?(option, max))
   end
   option
+end
+
+def get_valid_answer(question, max, min = 1)
+  answer = 0
+  while not(is_option_valid?(answer, max, min))
+    print question
+    answer = gets.chomp.to_i
+    puts "\nInput is not valid!" if not(is_option_valid?(answer, max, min))
+  end
+  answer
 end
 
 def get_boolean_answer(question)
@@ -66,8 +76,7 @@ def get_person_data()
   # types: (1) student, (2) teacher
   type_person = get_valid_option(options_create_person, 2)
   # get common fields between persons
-  print "Age: "
-  age = gets.chomp
+  age = get_valid_answer("Age: ", 120)
 
   print "Name (leave empty for unknown): "
   name = gets.chomp
