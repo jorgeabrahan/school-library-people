@@ -12,4 +12,8 @@ class App
       Teacher.new(specialization, age, name) : Student.new(age, name, parent_permission)
     )
   end
+  
+  def create_boook(title, author)
+    books.push(Book.new(title, author))
+  end
 end
