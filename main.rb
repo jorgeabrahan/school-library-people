@@ -27,10 +27,28 @@ def get_valid_option(get_option_func, max)
 end
 
 def main
-  option = get_valid_option(options_process, 7)
+  option = 0
+
   until option == 7
-    
     option = get_valid_option(options_process, 7)
+    
+    case option
+    when 1
+      # create a person
+    when 2
+      # create a book
+    when 3
+      # create a rental
+    when 4
+      # list all persons
+    when 5
+      # list all books
+    when 6
+      # list all rentals for a given person id
+    else
+      # exit app
+      puts "\nThanks for using the app!\n"
+    end
   end
 end
 
