@@ -1,45 +1,44 @@
 require './app'
 
+# determine if an option is valid (is in range)
+def is_option_valid?(option, max, min = 1)
+  return not(option > max || option < min)
+end
+
 def options_process
-  puts "What do you want to do?"
-  puts "1- Create a person"
-  puts "2- Create a book"
-  puts "3- Create a rental"
-  puts "4- List all persons"
-  puts "5- List all books"
-  puts "6- List all rentals for a given person id"
-  puts "7- Exit"
-  print "Write the number corresponding to the option you want to choose: "
-  option = gets.chomp.to_i
+  option = 0
+  while not(is_option_valid?(option, 7))
+    puts "\nWhat do you want to do?"
+    puts "1- Create a person"
+    puts "2- Create a book"
+    puts "3- Create a rental"
+    puts "4- List all persons"
+    puts "5- List all books"
+    puts "6- List all rentals for a given person id"
+    puts "7- Exit"
+    print "Write the number corresponding to the option you want to choose: "
+    option = gets.chomp.to_i
+    puts "\nOption is not valid!\n" if not(is_option_valid?(option, 7))
+  end
+  return option
 end
 
 def options_create_person
-  puts "Which type of person do you want to create?"
-  puts "1- Student"
-  puts "2- Teacher"
-  print "Write the number corresponding to the option you want to choose: "
-  option = gets.chomp.to_i
-end
-
-# determine if an option is valid (is in range)
-def is_option_valid?(option, max, min = 1)
-  return (option > max || option < min)
-end
-
-# calls a function that gets an option while the option is not valid (not in range)
-def get_valid_option(get_option_func, max, min = 1)
   option = 0
-  while not(is_option_valid?(option, max, min))
-    # keep asking for option while is not valid
-    option = get_option_func()
-    # if it's not valid (it's not in valid range), display a message
-    puts "\nOption is not valid!\n" if not(is_option_valid?(option, max, min))
+  while not(is_option_valid?(option, 2))
+    puts "\nWhich type of person do you want to create?"
+    puts "1- Student"
+    puts "2- Teacher"
+    print "Write the number corresponding to the option you want to choose: "
+    option = gets.chomp.to_i
+
+    puts "\nOption is not valid!\n" if not(is_option_valid?(option, 2))
   end
-  option
+  return option
 end
 
 def get_valid_answer(question, max, min = 1)
-  answer = 0
+  answer = -1
   while not(is_option_valid?(answer, max, min))
     print question
     answer = gets.chomp.to_i
