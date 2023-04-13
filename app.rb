@@ -7,6 +7,7 @@ class App
   attr_accessor :persons, :books, :rentals
 
   def list_persons
+    puts "Amount of persons #{persons.length}"
     persons.each { |p|
       type = p&.specialization != nil ? '[Teacher]' : '[Student]'
       specialization = (type == '[Teacher]') ? ", Specialization: #{p.specialization}" : ""
@@ -15,12 +16,14 @@ class App
   end
 
   def list_books
+    puts "Amount of books #{books.length}"
     books.each { |b| print "Title: \"#{b.title}\", Author: #{b.author}" }
   end
 
   def list_rentals(id)
     person = persons.find { |p| p.id == id }
-    puts "#{person.name} rentals:"
+    return if (person == nil || person&.rentals == nil)
+    puts "#{person.name} rentals (#{person&.rentals&.length}):"
     person&.rentals.each { |r|
       print "Date: #{r.date}, Book title: \"#{r.book.title}\", Book author: #{r.book.author}"
     }
