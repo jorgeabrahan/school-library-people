@@ -6,18 +6,21 @@ require './rental'
 class App
   attr_accessor :persons, :books, :rentals
 
-  def list_persons
+  def list_persons(display_num = false)
     puts "Amount of persons #{persons.length}"
-    persons.each { |p|
+    persons.each_with_index do |p, index|
       type = p&.specialization != nil ? '[Teacher]' : '[Student]'
       specialization = (type == '[Teacher]') ? ", Specialization: #{p.specialization}" : ""
-      print "#{type} ID: #{p.id}, Name: #{p.name}, Age: #{p.age}#{specialization}"
-    }
+      num = display_num ? "#{index}) " : ''
+      print "#{num}#{type} ID: #{p.id}, Name: #{p.name}, Age: #{p.age}#{specialization}"
+    end
   end
 
-  def list_books
+  def list_books(display_num = false)
     puts "Amount of books #{books.length}"
-    books.each { |b| print "Title: \"#{b.title}\", Author: #{b.author}" }
+    books.each_with_index do |b, index| 
+      print "#{display_num ? "#{index}) " : ''}Title: \"#{b.title}\", Author: #{b.author}"
+    end
   end
 
   def list_rentals(id)
