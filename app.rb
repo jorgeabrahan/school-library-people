@@ -14,6 +14,10 @@ class App
     }
   end
 
+  def list_books
+    books.each { |b| print "Title: \"#{b.title}\", Author: #{b.author}" }
+  end
+
   def create_person(age, name = "Unknown", parent_permission = true, specialization = nil)
     persons.push(
       specialization != nil ?
