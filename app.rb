@@ -16,4 +16,8 @@ class App
   def create_boook(title, author)
     books.push(Book.new(title, author))
   end
+  
+  def create_rental(date, book, person)
+    rentals.push(Rental.new(date, book, person))
+  end
 end
