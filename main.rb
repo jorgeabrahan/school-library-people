@@ -33,7 +33,7 @@ def get_valid_option(get_option_func, max, min = 1)
     # keep asking for option while is not valid
     option = get_option_func()
     # if it's not valid (it's not in valid range), display a message
-    puts "\nOption is not valid!\n" if not(is_option_valid?(option, max))
+    puts "\nOption is not valid!\n" if not(is_option_valid?(option, max, min))
   end
   option
 end
@@ -130,7 +130,7 @@ def main
   option = 0
   app = App.new
 
-  until option == 7
+  while option != 7
     option = get_valid_option(options_process, 7)
 
     case option
@@ -152,10 +152,15 @@ def main
       puts "Rental created successfully!"
     when 4
       # LIST ALL PERSONS
+      app.list_persons()
     when 5
       # LIST ALL BOOKS
+      app.list_books()
     when 6
       # LIST ALL RENTALS FOR A GIVEN PERSON ID
+      print "ID: "
+      id = gets.chomp
+      app.list_rentals(id)
     else
       # EXIT APP
       puts "\nThanks for using the app!\n"
