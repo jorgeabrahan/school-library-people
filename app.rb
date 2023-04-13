@@ -6,20 +6,26 @@ require './rental'
 class App
   attr_accessor :persons, :books, :rentals
 
+  def initialize
+    @persons = []
+    @books = []
+    @rentals = []
+  end
+
   def list_persons(display_num = false)
     puts "Amount of persons #{persons.length}"
     persons.each_with_index do |p, index|
       type = p&.specialization != nil ? '[Teacher]' : '[Student]'
       specialization = (type == '[Teacher]') ? ", Specialization: #{p.specialization}" : ""
       num = display_num ? "#{index}) " : ''
-      print "#{num}#{type} ID: #{p.id}, Name: #{p.name}, Age: #{p.age}#{specialization}"
+      puts "#{num}#{type} ID: #{p.id}, Name: #{p.name}, Age: #{p.age}#{specialization}"
     end
   end
 
   def list_books(display_num = false)
     puts "Amount of books #{books.length}"
     books.each_with_index do |b, index| 
-      print "#{display_num ? "#{index}) " : ''}Title: \"#{b.title}\", Author: #{b.author}"
+      puts "#{display_num ? "#{index}) " : ''}Title: \"#{b.title}\", Author: #{b.author}"
     end
   end
 
@@ -31,7 +37,7 @@ class App
     end
     puts "#{person.name} rentals (#{person&.rentals&.length}):"
     person&.rentals.each { |r|
-      print "Date: #{r.date}, Book title: \"#{r.book.title}\", Book author: #{r.book.author}"
+      puts "Date: #{r.date}, Book title: \"#{r.book.title}\", Book author: #{r.book.author}"
     }
   end
 
@@ -42,7 +48,7 @@ class App
     )
   end
   
-  def create_boook(title, author)
+  def create_book(title, author)
     books.push(Book.new(title, author))
   end
   
