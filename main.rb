@@ -85,11 +85,8 @@ def get_person_data()
 end
 
 def get_book_data()
-  print "Title: "
-  title = gets.chomp
-
-  print "Author: "
-  author = gets.chomp
+  title = get_not_empty_answer("Title: ")
+  author = get_not_empty_answer("Author: ")
 
   return [title, author]
 end
