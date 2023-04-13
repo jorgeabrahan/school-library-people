@@ -73,7 +73,7 @@ end
 
 def get_person_data()
   # types: (1) student, (2) teacher
-  type_person = get_valid_option(options_create_person, 2)
+  type_person = options_create_person()
   # get common fields between persons
   age = get_valid_answer("Age: ", 120)
 
@@ -130,8 +130,7 @@ def main
   app = App.new
 
   while option != 7
-    option = get_valid_option(options_process, 7)
-
+    option = options_process()
     case option
     when 1
       # CREATE A PERSON
