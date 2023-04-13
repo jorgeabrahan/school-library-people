@@ -6,6 +6,14 @@ require './rental'
 class App
   attr_accessor :persons, :books, :rentals
 
+  def list_persons
+    persons.each { |p|
+      type = p&.specialization != nil ? '[Teacher]' : '[Student]'
+      specialization = (type == '[Teacher]') ? ", Specialization: #{p.specialization}" : ""
+      print "#{type} ID: #{p.id}, Name: #{p.name}, Age: #{p.age}#{specialization}"
+    }
+  end
+
   def create_person(age, name = "Unknown", parent_permission = true, specialization = nil)
     persons.push(
       specialization != nil ?
