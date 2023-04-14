@@ -17,7 +17,7 @@ class Person < Nameable
   end
 
   def can_use_services?
-    return (is_of_age? || @parent_permission)
+    (is_of_age? || @parent_permission)
   end
 
   def add_rental(date, book)
@@ -26,6 +26,6 @@ class Person < Nameable
 
   private
   def is_of_age?
-    return @age >= 18
+    @age >= 18
   end
 end

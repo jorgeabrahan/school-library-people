@@ -16,7 +16,11 @@ class Student < Person
     "¯\\(ツ)/¯"
   end
 
-  def method_missing(method)
+  def method_missing(_method)
+    nil
+  end
+
+  def respond_to_missing?(_method_name)
     nil
   end
 end
