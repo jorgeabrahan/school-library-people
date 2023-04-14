@@ -6,12 +6,6 @@ require './rental'
 class App
   attr_accessor :persons, :books, :rentals
 
-  def initialize
-    @persons = []
-    @books = []
-    @rentals = []
-  end
-
   def list_persons(display_num: false)
     puts "Amount of persons #{persons.length}"
     persons.each_with_index do |p, index|
