@@ -41,7 +41,6 @@ class App
 
   def create_person(age, name = 'Unknown', specialty = nil, parent_permission: true)
     p = specialty.nil? ? Student.new(age, name, parent_permission) : Teacher.new(specialty, age, name)
-    persons.push(p)
   end
 
   def create_book(title, author)
