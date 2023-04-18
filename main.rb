@@ -51,12 +51,12 @@ def get_boolean_answer(question)
   answer = ''
   valid_answers = %w[Y N YES NO]
   # while answer is not valid
-  until valid_answers.capitalize.include?(answer)
+  until valid_answers.include?(answer.upcase)
     # keep asking and getting answer
     print question
     answer = gets.chomp
     # if it's not valid (answer is not a valid answer from array, display a message)
-    puts "\nAnswer is not valid!\n" unless valid_answers.include?(answer)
+    puts "\nAnswer is not valid!\n" unless valid_answers.include?(answer.upcase)
   end
   # return answer as boolean (if it starts with "y" is true otherwise it is false)
   (answer.downcase[0] == 'y')
@@ -148,7 +148,7 @@ end
 
 def show_rentals(app)
   # if there are no persons to display rentals of
-  return puts "\nERROR:\nThere are no persons created yet!\n\n" if (persons.nil? || persons.length == 0)
+  return puts "\nERROR:\nThere are no persons created yet!\n\n" if (app.persons.nil? || app.persons.length == 0)
   print 'ID: '
   id = gets.chomp.to_i
   app.list_rentals(id)
