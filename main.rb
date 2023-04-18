@@ -40,7 +40,7 @@ end
 def get_input_range(question, max, min = 1)
   print question
   answer = gets.chomp.to_i
-  if not(option_valid?(answer, max, min))
+  unless option_valid?(answer, max, min)
     puts "\nInput is not valid!"
     return get_input_range(question, max, min)
   end
@@ -141,6 +141,7 @@ end
 def new_rental(app)
   date, book, person = rental_data(app)
   return if date.nil? || book.nil? || person.nil?
+
   app.create_rental(date, book, person)
   puts 'Rental created successfully!'
   true
@@ -148,7 +149,8 @@ end
 
 def show_rentals(app)
   # if there are no persons to display rentals of
-  return puts "\nERROR:\nThere are no persons created yet!\n\n" if (app.persons.nil? || app.persons.length == 0)
+  return puts "\nERROR:\nThere are no persons created yet!\n\n" if app.persons.nil? || app.persons.empty?
+
   print 'ID: '
   id = gets.chomp.to_i
   app.list_rentals(id)

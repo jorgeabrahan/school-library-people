@@ -12,26 +12,28 @@ class App
     @rentals = []
   end
 
+  def get_type(person)
+    person&.specialization.nil? ? '[Student]' : '[Teacher]'
+  end
+
   def list_persons(display_num: false)
     # if there are no persons
-    return puts "\nERROR:\nThere are no persons created yet!\n\n" if (persons.nil? || persons.length == 0)
+    return puts "\nERROR:\nThere are no persons created yet!\n\n" if persons.nil? || persons.empty?
 
     puts "Amount of persons #{persons.length}"
     persons.each_with_index do |p, index|
       # identify which type to display
-      type = p&.specialization.nil? ? '[Student]' : '[Teacher]'
+      type = get_type(p)
       # identify if it is needed to display the specialization
       specialization = type == '[Teacher]' ? ", Specialization: #{p.specialization}" : ''
-      # display the index of the person if necessary
-      num = display_num ? "#{index}) " : ''
       # display each person data
-      puts "#{num}#{type} ID: #{p.id}, Name: #{p.name}, Age: #{p.age}#{specialization}"
+      puts "#{display_num ? "#{index}) " : ''}#{type} ID: #{p.id}, Name: #{p.name}, Age: #{p.age}#{specialization}"
     end
   end
 
   def list_books(display_num: false)
     # if there are no books
-    return puts "\nERROR:\nThere are no books created yet!\n\n" if (books.nil? || books.length == 0)
+    return puts "\nERROR:\nThere are no books created yet!\n\n" if books.nil? || books.empty?
 
     puts "Amount of books #{books.length}"
     books.each_with_index do |b, index|
