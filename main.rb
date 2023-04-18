@@ -37,26 +37,26 @@ def options_create_person
   option
 end
 
-def get_valid_answer(question, max, min = 1)
-  answer = -1
-  until option_valid?(answer, max, min)
-    print question
-    answer = gets.chomp.to_i
-    puts "\nInput is not valid!" unless option_valid?(answer, max, min)
+def get_input_range(question, max, min = 1)
+  print question
+  answer = gets.chomp.to_i
+  unless option_valid?(answer, max, min)
+    puts "\nInput is not valid!"
+    return get_input_range(question, max, min)
   end
   answer
 end
 
 def get_boolean_answer(question)
   answer = ''
-  valid_answers = %w[y Y n N Yes No YES NO]
+  valid_answers = %w[Y N YES NO]
   # while answer is not valid
-  until valid_answers.include?(answer)
+  until valid_answers.include?(answer.upcase)
     # keep asking and getting answer
     print question
     answer = gets.chomp
     # if it's not valid (answer is not a valid answer from array, display a message)
-    puts "\nAnswer is not valid!\n" unless valid_answers.include?(answer)
+    puts "\nAnswer is not valid!\n" unless valid_answers.include?(answer.upcase)
   end
   # return answer as boolean (if it starts with "y" is true otherwise it is false)
   (answer.downcase[0] == 'y')
@@ -75,7 +75,7 @@ def person_data()
   # types: (1) student, (2) teacher
   type_person = options_create_person
   # get common fields between persons
-  age = get_valid_answer('Age: ', 120)
+  age = get_input_range('Age: ', 120)
 
   print 'Name (leave empty for unknown): '
   name = gets.chomp
@@ -112,12 +112,12 @@ def rental_data(app)
 
   # get selected book
   app.list_books(display_num: true)
-  book_index = get_valid_answer('Select a book by number: ', app.books.length - 1, 0)
+  book_index = get_input_range('Select a book by number: ', app.books.length - 1, 0)
   book = app.books[book_index]
 
   # get selected person
   app.list_persons(display_num: true)
-  person_index = get_valid_answer('Select a person by number: ', app.persons.length - 1, 0)
+  person_index = get_input_range('Select a person by number: ', app.persons.length - 1, 0)
   person = app.persons[person_index]
 
   date = get_not_empty_answer('Date: ')
@@ -140,42 +140,20 @@ end
 
 def new_rental(app)
   date, book, person = rental_data(app)
-  if date.nil? || book.nil? || person.nil?
-    puts "\nERROR:\nWhile creating the rental one of the supplied values was not valid!\n\n"
-    return false
-  end
+  return if date.nil? || book.nil? || person.nil?
+
   app.create_rental(date, book, person)
   puts 'Rental created successfully!'
   true
 end
 
-def show_persons(app)
-  if app.persons.nil?
-    puts "\nERROR:\nThere are no persons created yet!\n\n"
-    return false
-  end
-  app.list_persons
-  true
-end
-
-def show_books(app)
-  if app.books.nil?
-    puts "\nERROR:\nThere are no books created yet!\n\n"
-    return false
-  end
-  app.list_books
-  true
-end
-
 def show_rentals(app)
-  if app.persons.nil?
-    puts "\nERROR:\nThere are no persons created yet!\n\n"
-    return false
-  end
+  # if there are no persons to display rentals of
+  return puts "\nERROR:\nThere are no persons created yet!\n\n" if app.persons.nil? || app.persons.empty?
+
   print 'ID: '
   id = gets.chomp.to_i
   app.list_rentals(id)
-  true
 end
 
 def evaluate_cases(option, app)
@@ -183,8 +161,8 @@ def evaluate_cases(option, app)
   when 1 then new_person(app)
   when 2 then new_book(app)
   when 3 then new_rental(app)
-  when 4 then show_persons(app)
-  when 5 then show_books(app)
+  when 4 then app.list_persons
+  when 5 then app.list_books
   when 6 then show_rentals(app)
   else puts "\nThanks for using the app!\n"
   end
