@@ -45,13 +45,11 @@ class App
   def get_person(id)
     # get person from persons array by ID
     person = persons.find { |p| p.id == id }
+    return person unless person.nil? || person&.rentals.nil?
+
     # if person does not exist returns nil and displays an error message
-    if person.nil? || person&.rentals.nil?
-      puts 'id is not valid!'
-      return nil
-    end
-    # otherwise the person is returned
-    person
+    puts 'id is not valid!'
+    nil
   end
 
   def list_rentals(id)
@@ -69,10 +67,8 @@ class App
   end
 
   def create_person(age, name = 'Unknown', specialty = nil, parent_permission: true)
-    # determine which type of person to insert
-    p = specialty.nil? ? Student.new(age, name, parent_permission) : Teacher.new(specialty, age, name)
-    # insert the person to the persons array
-    persons.push(p)
+    # determine which type of person to insert and insert it
+    persons.push(specialty.nil? ? Student.new(age, name, parent_permission) : Teacher.new(specialty, age, name))
   end
 
   def create_book(title, author)

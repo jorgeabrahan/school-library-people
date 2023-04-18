@@ -15,7 +15,7 @@ def options_process
     puts '4- List all persons'
     puts '5- List all books'
     puts '6- List all rentals for a given person id'
-    puts '7- Exit'
+    puts '7- Exit and save'
     print 'Write the number corresponding to the option you want to choose: '
     option = gets.chomp.to_i
     puts "\nOption is not valid!\n" unless option_valid?(option, 7)
