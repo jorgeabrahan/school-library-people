@@ -13,6 +13,9 @@ class App
   end
 
   def list_persons(display_num: false)
+    # if there are no persons
+    return puts "\nERROR:\nThere are no persons created yet!\n\n" if (persons.nil? || persons.length == 0)
+
     puts "Amount of persons #{persons.length}"
     persons.each_with_index do |p, index|
       # identify which type to display
@@ -27,6 +30,9 @@ class App
   end
 
   def list_books(display_num: false)
+    # if there are no books
+    return puts "\nERROR:\nThere are no books created yet!\n\n" if (books.nil? || books.length == 0)
+
     puts "Amount of books #{books.length}"
     books.each_with_index do |b, index|
       # display each book data and the index if necessary
