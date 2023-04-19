@@ -19,7 +19,7 @@ describe Person do
   end
 
   describe '#can_use_services' do
-    it 'Return true if person is older than 18 or have permission, in this exercise person is older than 18 so we expect true' do
+    it 'Return true if person is older than 18 or have permission, expect true "current age 22"' do
       expect(@person.can_use_services?).to eql(true)
     end
   end
