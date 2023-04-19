@@ -164,13 +164,16 @@ def evaluate_cases(option, app)
   when 4 then app.list_persons
   when 5 then app.list_books
   when 6 then show_rentals(app)
-  else puts "\nThanks for using the app!\n"
+  else
+    app.preserve_data
+    puts "\nThanks for using the app!\n"
   end
 end
 
 def main
   option = 0
   app = App.new
+  app.retrieve_data
   while option != 7
     option = options_process
     next unless evaluate_cases(option, app)
