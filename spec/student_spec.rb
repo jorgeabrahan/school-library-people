@@ -43,4 +43,10 @@ describe Student do
       expect(@student.classroom.label).to eq "Programming"
     end
   end
+
+  describe "#play_hooky" do
+    it "Should return a string" do
+      expect(@student.play_hooky).to eq "¯\\(ツ)/¯"
+    end
+  end
 end
