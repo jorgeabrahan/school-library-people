@@ -49,4 +49,10 @@ describe Student do
       expect(@student.play_hooky).to eq "¯\\(ツ)/¯"
     end
   end
+
+  describe "#method_missing" do
+    it "Should return nil whenever you call a non existing method of the student class" do
+      expect(@student.non_existing_method).to be_nil
+    end
+  end
 end
