@@ -7,7 +7,7 @@ class Student < Person
     super(age, name, parent_permission, id)
   end
 
-  def as_json(options={})
+  def as_json(_options = {})
     {
       id: @id,
       name: @name,

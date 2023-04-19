@@ -8,7 +8,7 @@ class Teacher < Person
     @specialization = specialization
   end
 
-  def as_json(options={})
+  def as_json(_options = {})
     {
       id: @id,
       name: @name,
@@ -17,7 +17,7 @@ class Teacher < Person
       specialization: @specialization
     }
   end
-  
+
   def to_json(*options)
     as_json(*options).to_json(*options)
   end

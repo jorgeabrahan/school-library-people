@@ -14,7 +14,7 @@ class App
     @rentals = []
   end
 
-  def get_type(person)
+  def get_type(_person)
     @person&.specialization.nil? ? '[Student]' : '[Teacher]'
   end
 
@@ -80,7 +80,7 @@ class App
   def create_rental(date, book, person)
     @rentals.push(Rental.new(date, book, person))
   end
-  
+
   def preserve_data
     @storage.preserve(persons, 'persons.json')
     @storage.preserve(books, 'books.json')
@@ -89,7 +89,11 @@ class App
 
   def retrieve_persons
     @storage.read('persons.json').each do |obj|
-      id, age, name, specialty, permission = obj["id"], obj["age"], obj["name"], obj["specialization"], obj["parent_permission"]
+      id = obj['id']
+      age = obj['age']
+      name = obj['name']
+      specialty = obj['specialization']
+      permission = obj['parent_permission']
 
       if specialty.nil?
         @persons.push(Student.new(age, name, specialty, id))
@@ -101,7 +105,8 @@ class App
 
   def retrieve_books
     @storage.read('books.json').each do |obj|
-      title, author = obj["title"], obj["author"]
+      title = obj['title']
+      author = obj['author']
       create_book(title, author)
     end
   end
@@ -110,13 +115,11 @@ class App
     @books.find { |b| b.title == title }
   end
 
-  def get_person(id)
-    @persons.find { |p| p.id == id }
-  end
-  
   def retrieve_rentals
     @storage.read('rentals.json').each do |obj|
-      date, book_title, person_id = obj["date"], obj["book_title"], obj["person_id"]
+      date = obj['date']
+      book_title = obj['book_title']
+      person_id = obj['person_id']
       create_rental(date, get_book(book_title), get_person(person_id))
     end
   end
