@@ -1,7 +1,7 @@
 # require classes to test
-relative_require '../person'
-relative_require '../book'
-relative_require '../teacher'
-relative_require '../student'
-relative_require '../classroom'
-relative_require '../rental'
+require_relative '../person'
+require_relative '../book'
+require_relative '../teacher'
+require_relative '../student'
+require_relative '../classroom'
+require_relative '../rental'
