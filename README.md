@@ -122,6 +122,11 @@ This project is not deployed
 - GitHub: [@AyomipoMajek](https://github.com/AyomipoMajek)
 - Linkedin: [@AyomipoMajek](https://www.linkedin.com/in/ayomipomajek/)
 
+👤 **Nelson Araujo**
+
+- GitHub: [@NelsonAraujo93](https://github.com/NelsonAraujo93)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nelson-araujo-paredes/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
