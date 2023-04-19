@@ -27,4 +27,17 @@ describe Teacher do
       expect(@teacher.id).to be_between(100, 999).inclusive
     end
   end
+
+  describe "#as_json" do
+    it "Should convert the teacher data to JSON" do
+      mock_teacher = {
+        id: @teacher.id,
+        name: "Juan",
+        age: 35,
+        parent_permission: true,
+        specialization: @teacher.specialization
+      }
+      expect(@teacher.to_json).to eq mock_teacher.to_json
+    end
+  end
 end
