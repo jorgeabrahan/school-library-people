@@ -105,4 +105,8 @@ class App
       create_book(title, author)
     end
   end
+
+  def get_book(title)
+    @books.find { |b| b.title == title }
+  end
 end
