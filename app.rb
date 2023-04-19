@@ -98,4 +98,11 @@ class App
       @persons.push(Teacher.new(specialty, age, name, permission, id))
     end
   end
+
+  def retrieve_books
+    @storage.read('books.json').each do |obj|
+      title, author = obj["title"], obj["author"]
+      create_book(title, author)
+    end
+  end
 end
