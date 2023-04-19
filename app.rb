@@ -80,4 +80,10 @@ class App
   def create_rental(date, book, person)
     @rentals.push(Rental.new(date, book, person))
   end
+
+  def preserve_data
+    @storage.preserve(persons, 'persons.json')
+    @storage.preserve(books, 'books.json')
+    @storage.preserve(rentals, 'rentals.json')
+  end
 end
