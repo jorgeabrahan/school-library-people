@@ -1,6 +1,9 @@
 require 'json'
 
+# This Class was created to write json and read json methods 
 class Storage
+
+
   def initialize(relative_path)
     @relative_path = relative_path
   end

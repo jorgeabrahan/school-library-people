@@ -7,6 +7,7 @@ class Student < Person
     super(age, name, parent_permission, id)
   end
 
+  # This method tranform the Student class instance into hash
   def as_json(_options = {})
     {
       id: @id,
