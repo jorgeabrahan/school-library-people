@@ -13,8 +13,6 @@ class Storage
   def read(file_name)
     file = File.read("./#{@relative_path}/#{file_name}")
     # if files are empty create an empty array so JSON parse don't throw an error
-    to_parse = file == '' ? [].to_json : file
-    # parse file or empty array
-    JSON.parse(to_parse)
+    file == '' ? [] : JSON.parse(file)
   end
 end
