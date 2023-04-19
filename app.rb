@@ -80,10 +80,22 @@ class App
   def create_rental(date, book, person)
     @rentals.push(Rental.new(date, book, person))
   end
-
+  
   def preserve_data
     @storage.preserve(persons, 'persons.json')
     @storage.preserve(books, 'books.json')
     @storage.preserve(rentals, 'rentals.json')
+  end
+
+  def retrieve_persons
+    @storage.read('persons.json').each do |obj|
+      id, age, name, specialty, permission = obj["id"], obj["age"], obj["name"], obj["specialization"], obj["parent_permission"]
+
+      if specialty.nil?
+        @persons.push(Student.new(age, name, specialty, id))
+        next
+      end
+      @persons.push(Teacher.new(specialty, age, name, permission, id))
+    end
   end
 end
