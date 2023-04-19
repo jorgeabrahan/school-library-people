@@ -117,6 +117,12 @@ This project is not deployed
 - GitHub: [@jorgeabrahan](https://github.com/jorgeabrahan)
 - LinkedIn: [Jorge Abrahan](https://www.linkedin.com/in/jorge-siguenza/)
 
+👤 **Ayomipo Majek**
+
+- GitHub: [@AyomipoMajek](https://github.com/AyomipoMajek)
+- Linkedin: [@AyomipoMajek](https://www.linkedin.com/in/ayomipomajek/)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
