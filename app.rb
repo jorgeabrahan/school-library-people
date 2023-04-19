@@ -2,26 +2,28 @@ require './teacher'
 require './student'
 require './book'
 require './rental'
+require './storage'
 
 class App
   attr_accessor :persons, :books, :rentals
 
   def initialize
+    @storage = Storage.new('storage')
     @persons = []
     @books = []
     @rentals = []
   end
 
   def get_type(person)
-    person&.specialization.nil? ? '[Student]' : '[Teacher]'
+    @person&.specialization.nil? ? '[Student]' : '[Teacher]'
   end
 
   def list_persons(display_num: false)
     # if there are no persons
-    return puts "\nERROR:\nThere are no persons created yet!\n\n" if persons.nil? || persons.empty?
+    return puts "\nERROR:\nThere are no persons created yet!\n\n" if @persons.nil? || @persons.empty?
 
-    puts "Amount of persons #{persons.length}"
-    persons.each_with_index do |p, index|
+    puts "Amount of persons #{@persons.length}"
+    @persons.each_with_index do |p, index|
       # identify which type to display
       type = get_type(p)
       # identify if it is needed to display the specialization
@@ -33,10 +35,10 @@ class App
 
   def list_books(display_num: false)
     # if there are no books
-    return puts "\nERROR:\nThere are no books created yet!\n\n" if books.nil? || books.empty?
+    return puts "\nERROR:\nThere are no books created yet!\n\n" if @books.nil? || @books.empty?
 
-    puts "Amount of books #{books.length}"
-    books.each_with_index do |b, index|
+    puts "Amount of books #{@books.length}"
+    @books.each_with_index do |b, index|
       # display each book data and the index if necessary
       puts "#{display_num ? "#{index}) " : ''}Title: \"#{b.title}\", Author: #{b.author}"
     end
@@ -44,7 +46,7 @@ class App
 
   def get_person(id)
     # get person from persons array by ID
-    person = persons.find { |p| p.id == id }
+    person = @persons.find { |p| p.id == id }
     return person unless person.nil? || person&.rentals.nil?
 
     # if person does not exist returns nil and displays an error message
@@ -68,14 +70,14 @@ class App
 
   def create_person(age, name = 'Unknown', specialty = nil, parent_permission: true)
     # determine which type of person to insert and insert it
-    persons.push(specialty.nil? ? Student.new(age, name, parent_permission) : Teacher.new(specialty, age, name))
+    @persons.push(specialty.nil? ? Student.new(age, name, parent_permission) : Teacher.new(specialty, age, name))
   end
 
   def create_book(title, author)
-    books.push(Book.new(title, author))
+    @books.push(Book.new(title, author))
   end
 
   def create_rental(date, book, person)
-    rentals.push(Rental.new(date, book, person))
+    @rentals.push(Rental.new(date, book, person))
   end
 end
