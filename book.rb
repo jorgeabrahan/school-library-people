@@ -7,10 +7,10 @@ class Book
     @rentals = []
   end
 
-  def as_json(options={})
+  def as_json(_options = {})
     {
       title: @title,
-      author: @author,
+      author: @author
     }
   end
 

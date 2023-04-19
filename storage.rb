@@ -11,6 +11,6 @@ class Storage
 
   def read(file_name)
     file = File.read("./#{@relative_path}/#{file_name}")
-    data = JSON.parse(file)
+    JSON.parse(file)
   end
 end
