@@ -120,4 +120,10 @@ class App
       create_rental(date, get_book(book_title), get_person(person_id))
     end
   end
+
+  def retrieve_data
+    retrieve_persons
+    retrieve_books
+    retrieve_rentals
+  end
 end
