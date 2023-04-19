@@ -36,4 +36,11 @@ describe Student do
       expect(@student.to_json).to eq mock_student.to_json
     end
   end
+
+  describe "#classroom_setter" do
+    it "Should add the student to a classroom" do
+      @student.classroom = Classroom.new "Programming"
+      expect(@student.classroom.label).to eq "Programming"
+    end
+  end
 end
