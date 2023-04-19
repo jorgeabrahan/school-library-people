@@ -40,4 +40,10 @@ describe Teacher do
       expect(@teacher.to_json).to eq mock_teacher.to_json
     end
   end
+
+  describe "#can_use_services?" do
+    it "Should always be able to use services" do
+      expect(@teacher.can_use_services?).to eq "Programming"
+    end
+  end
 end
