@@ -113,4 +113,11 @@ class App
   def get_person(id)
     @persons.find { |p| p.id == id }
   end
+  
+  def retrieve_rentals
+    @storage.read('rentals.json').each do |obj|
+      date, book_title, person_id = obj["date"], obj["book_title"], obj["person_id"]
+      create_rental(date, get_book(book_title), get_person(person_id))
+    end
+  end
 end
