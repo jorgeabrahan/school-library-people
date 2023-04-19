@@ -12,7 +12,6 @@
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
-    - [Run tests](#run-tests)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -59,7 +58,6 @@ In order to run this project you need:
 ### Setup
 
 Clone this repository to your desired folder:
-
 ```
 git clone https://github.com/jorgeabrahan/school_library_people.git
 ```
@@ -94,15 +92,6 @@ ruby ./file_name
 
 This will execute the file.
 
-### Run tests
-
-There are no tests configured for this project.
-
-### Deployment
-
-This project is not deployed
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
 
