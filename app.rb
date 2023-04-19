@@ -109,4 +109,8 @@ class App
   def get_book(title)
     @books.find { |b| b.title == title }
   end
+
+  def get_person(id)
+    @persons.find { |p| p.id == id }
+  end
 end
