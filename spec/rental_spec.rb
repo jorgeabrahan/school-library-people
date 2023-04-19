@@ -33,7 +33,7 @@ describe Rental do
         date: rental.date,
         book_title: rental.book.title,
         person_id: rental.person.id
-      }.to_json)      
+      }.to_json)
     end
   end
 end
