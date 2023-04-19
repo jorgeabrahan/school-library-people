@@ -7,14 +7,11 @@
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
-  - [🚀 Live Demo ](#-live-demo-)
   - [💻 Getting Started ](#-getting-started-)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
-    - [Run tests](#run-tests)
-    - [Deployment](#deployment)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -45,10 +42,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- Not deployed yet!
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -65,7 +58,6 @@ In order to run this project you need:
 ### Setup
 
 Clone this repository to your desired folder:
-
 ```
 git clone https://github.com/jorgeabrahan/school_library_people.git
 ```
@@ -100,15 +92,6 @@ ruby ./file_name
 
 This will execute the file.
 
-### Run tests
-
-There are no tests configured for this project.
-
-### Deployment
-
-This project is not deployed
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
 
@@ -116,6 +99,17 @@ This project is not deployed
 
 - GitHub: [@jorgeabrahan](https://github.com/jorgeabrahan)
 - LinkedIn: [Jorge Abrahan](https://www.linkedin.com/in/jorge-siguenza/)
+
+👤 **Ayomipo Majek**
+
+- GitHub: [@AyomipoMajek](https://github.com/AyomipoMajek)
+- Linkedin: [@AyomipoMajek](https://www.linkedin.com/in/ayomipomajek/)
+
+👤 **Nelson Araujo**
+
+- GitHub: [@NelsonAraujo93](https://github.com/NelsonAraujo93)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nelson-araujo-paredes/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
