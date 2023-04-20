@@ -3,6 +3,13 @@ require 'spec_helper'
 describe Student do
   before :all do
     @student = Student.new 20, 'Jorge'
+    @mock_student = {
+        id: @student.id,
+        name: 'Jorge',
+        age: 20,
+        parent_permission: true,
+        specialization: nil
+      }
   end
 
   describe '#new' do
@@ -26,14 +33,13 @@ describe Student do
 
   describe '#as_json' do
     it 'Should convert the student data to JSON' do
-      mock_student = {
-        id: @student.id,
-        name: 'Jorge',
-        age: 20,
-        parent_permission: true,
-        specialization: nil
-      }
-      expect(@student.to_json).to eq mock_student.to_json
+      expect(@student.to_json).to eq @mock_student.to_json
+    end
+  end
+
+  describe '#to_json' do
+    it 'Should convert the student data to JSON format' do
+      expect(@student.to_json).to eq @mock_student.to_json
     end
   end
 
