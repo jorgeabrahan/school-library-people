@@ -61,4 +61,10 @@ describe Student do
       expect(@student.non_existing_method).to be_nil
     end
   end
+
+  describe '#respond_to_missing' do
+    it 'Should return nil whenever a method is missing' do
+      expect(@student.respond_to_missing).to be_nil
+    end
+  end
 end
