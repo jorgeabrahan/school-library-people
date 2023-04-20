@@ -1,23 +1,24 @@
 class Solver
-  def factorial(n)
-    raise "Integer should be positive" if n < 0
-    return 1 if (n == 0 || n == 1)
-    return n * factorial(n - 1)
+  def factorial(int)
+    raise 'Integer should be positive' if int.negative?
+    return 1 if [0, 1].include?(int)
+
+    int * factorial(int - 1)
   end
 
   def reverse(word)
     word.reverse
   end
 
-  def fizzbuzz(n)
-    if n%3 == 0 && n%5 == 0
-      return 'fizzbuzz'
-    elsif n%3 == 0
-      return 'fizz'
-    elsif n%5 == 0
-      return 'buzz'
+  def fizzbuzz(int)
+    if (int % 3).zero? && (int % 5).zero?
+      'fizzbuzz'
+    elsif (int % 3).zero?
+      'fizz'
+    elsif (int % 5).zero?
+      'buzz'
     else
-      return n.to_s
+      int.to_s
     end
   end
 end
