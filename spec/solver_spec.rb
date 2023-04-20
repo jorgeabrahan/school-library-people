@@ -23,6 +23,16 @@ describe Solver do
         expect(@solver.factorial(0)).to eq(1)
       end
     end
+    
+    context 'When factorial receives an invalid input raise error' do
+      it 'Should raise an exception when a -1 is given' do
+        expect{ @solver.factorial(-1) }.to raise_error("Integer should be positive")
+      end
+      
+      it 'Should raise an exception when a -5 is given' do
+        expect{ @solver.factorial(-5) }.to raise_error("Integer should be positive")
+      end
+    end
   end
 
   describe '#reverse' do
