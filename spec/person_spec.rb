@@ -30,4 +30,10 @@ describe Person do
       expect(@person.instance_variable_get(:@rentals).length).to eq(1)
     end
   end
+
+  describe '#is_of_age?' do
+    it 'Should return true since the person is of age' do
+      expect(@person.send(:is_of_age?)).to be_truthy
+    end
+  end
 end
