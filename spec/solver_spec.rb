@@ -6,8 +6,22 @@ describe Solver do
   end
   
   describe '#factorial' do
-    it '' do
+    context 'When factorial receives a valid input test functionality' do
+      it 'Should return 6 as factorial of 3' do
+        expect(@solver.factorial(3)).to eq(6)
+      end
+
+      it 'Should return 120 as factorial of 5' do
+        expect(@solver.factorial(5)).to eq(120)
+      end
       
+      it 'Should return 5040 as factorial of 7' do
+        expect(@solver.factorial(5)).to eq(120)
+      end
+
+      it 'Should return 1 as factorial of 0' do
+        expect(@solver.factorial(0)).to eq(1)
+      end
     end
   end
 
