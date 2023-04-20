@@ -4,12 +4,12 @@ describe Student do
   before :all do
     @student = Student.new 20, 'Jorge'
     @mock_student = {
-        id: @student.id,
-        name: 'Jorge',
-        age: 20,
-        parent_permission: true,
-        specialization: nil
-      }
+      id: @student.id,
+      name: 'Jorge',
+      age: 20,
+      parent_permission: true,
+      specialization: nil
+    }
   end
 
   describe '#new' do
