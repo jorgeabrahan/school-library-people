@@ -4,6 +4,11 @@ describe Book do
   before :each do
     @book = Book.new('Title', 'Author')
     @person = Person.new(22, 'Name', parent_permission: true)
+
+    @mock_book = {
+      title: 'Title',
+      author: 'Author'
+    }
   end
 
   describe '#new' do
@@ -13,12 +18,14 @@ describe Book do
   end
 
   describe '#as_json' do
-    test_data = {
-      title: 'Title',
-      author: 'Author'
-    }
     it 'take a book instance an return it as json' do
-      expect(@book.as_json(@book)).to eq(test_data)
+      expect(@book.as_json(@book)).to eq(@mock_book)
+    end
+  end
+
+  describe '#to_json' do
+    it 'Should convert the book data to JSON format' do
+      expect(@book.to_json).to eq @mock_book.to_json
     end
   end
 
