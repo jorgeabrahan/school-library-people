@@ -43,7 +43,7 @@ describe Teacher do
 
   describe '#can_use_services?' do
     it 'Should always be able to use services' do
-      expect(@teacher.can_use_services?).to eq 'Programming'
+      expect(@teacher.can_use_services?).to be_truthy
     end
   end
 end
